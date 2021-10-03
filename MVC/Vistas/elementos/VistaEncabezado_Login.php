@@ -14,10 +14,10 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Acceder</a>
+							<a class="nav-link active" aria-current="page" href="http://localhost/codeIgniter/pasteleria/CodeIgniter-3.1.11/index.php/acceso">Acceder</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Registrarme</a>
+							<a class="nav-link" href="http://localhost/codeIgniter/pasteleria/CodeIgniter-3.1.11/index.php/registro">Registrarme</a>
 						</li>
 					</ul>
 				</div>
