@@ -1,29 +1,5 @@
 <html>
 
-<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-			<div class="container-fluid">
-				<a class="  mx-autofs-2 navbar-brand border border-ligth border-3 rounded-pill text-center p-1 fw-bolder user-select-none p-3 text-white">Pastelería</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link" href="#">Productos Existentes</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link"  href="#">Registrar Productos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Actualizar Productos</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</body>
-
     <head>
         <title>Actualizacion</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
