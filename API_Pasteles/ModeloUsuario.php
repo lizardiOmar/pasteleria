@@ -8,8 +8,8 @@
 		var $correo;
 		var $clave;
 		var $tipo;
-		
-		public function __construct($id, $nombres, $apellidos, $correo, $edad, $clave, $tipo){
+		var $tipo_string;
+		public function __construct($id, $nombres, $apellidos, $edad, $correo, $clave, $tipo){
 			$this->id 			= $id;
 			$this->nombres 		= $nombres;
 			$this->apellidos 	= $apellidos;
@@ -23,6 +23,7 @@
 				return $this->id;
 			}
 		}
+		
 		public function getNombres(){
 			if(isset($this->nombres)){
 				return $this->nombres;
@@ -52,6 +53,9 @@
 			if(isset($this->tipo)){
 				return $this->tipo;
 			}
+		}
+		public function setTipoString($tipo_str){
+			$this->tipo_string=$tipo_str;
 		}
 		public function guardarCliente(){
 			try {	
@@ -155,20 +159,52 @@
 			$conn=new Conexion();
 			$sql = "SELECT * FROM usuarios where correo='$correo' and clave='$clave'";
 			try {
+				
 				$stmt = $conn->getConexion()->query($sql);
 				$result = $stmt->setFetchMode(PDO::FETCH_NUM);
-				$usuario=null;
 				while ($row = $stmt->fetch()) {
 					$usuario =  new ModeloUsuario($row[0], $row[1], $row[2], $row[3],  $row[4], $row[5], $row[6]);
 				}
 				$conn=null;
-				echo json_encode($usuario);
-				return json_encode($usuario);
+				//echo json_encode($usuario);
+				return $usuario;
 			} catch (PDOException $e) {
 				$response = null;
 				$response = array(
 					"estado"=>"FALLIDO",
-					"cliente"=>"NULL"
+					"usuario"=>"NULL"
+				);
+				echo json_encode($response);
+				return json_encode($response);
+			}
+		}
+		public static function tipoDeUsuario($correo){
+			$response = null;
+			$conn=new Conexion();
+			$sql_tipo_num = "SELECT tipo FROM usuarios where correo='$correo'";
+			try {
+				$stmt = $conn->getConexion()->query($sql_tipo_num);
+				$result = $stmt->setFetchMode(PDO::FETCH_NUM);
+				$usuario=null;
+				while ($row = $stmt->fetch()) {
+					$tipo_num = $row[0];
+					$sql_tipo_str = "SELECT nombre FROM tipos_de_usuario where id='$tipo_num'";
+					$stmt = $conn->getConexion()->query($sql_tipo_str);
+					$result = $stmt->setFetchMode(PDO::FETCH_NUM);
+					$tipo =null;
+					while ($row = $stmt->fetch()) {
+						$tipo = $row[0];
+					}
+				}
+				
+				$conn=null;
+				//echo json_encode($tipo);
+				return json_encode($tipo);
+			} catch (PDOException $e) {
+				$response = null;
+				$response = array(
+					"estado"=>"FALLIDO",
+					"tipo"=>"NULL"
 				);
 				
 				return json_encode($response);

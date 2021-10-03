@@ -24,9 +24,16 @@
 		//Leer clientes o cliente GET
 		case 'GET':
 			if (isset($_GET['correo'])&&isset($_GET['clave'])) {
-				ModeloUsuario::isLogin($_GET['correo'], $_GET['clave']);
+				
+				$usuario=ModeloUsuario::isLogin($_GET['correo'], $_GET['clave']);
+				if($usuario!=null){
+					$usuario->setTipoString(ModeloUsuario::tipoDeUsuario($_GET['correo']));
+					echo "TIPO_DE_USUARIO: (".$usuario->correo." ".$usuario->apellidos.")".$usuario->tipo_string;
+				}
+				
+				
 			}else{
-				ModeloUsuario::allUsuarios();
+				//ModeloUsuario::tipoDeUsuario('almacen@pasteles.com');
 			}
 		break;
 		//Actualizar cliente UPDATE
