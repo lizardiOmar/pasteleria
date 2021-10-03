@@ -25,8 +25,8 @@
 				<input type="number" min="1" max="5" class="form-control fs-4 fw-bold" id="inputCantidad">
 			  </div>
 			  <div class="mb-3">
-				<label for="inputCantidad" class="form-label text-white fs-2 fw-bolder  user-select-none">Cantidad minima</label>
-				<input type="number" min="1" max="5" class="form-control fs-4 fw-bold" id="inputCantidad">
+				<label for="inputCantidadMin" class="form-label text-white fs-2 fw-bolder  user-select-none">Cantidad minima</label>
+				<input type="number" min="1" max="5" class="form-control fs-4 fw-bold" id="inputCantidadMin">
 			  </div>
 			  <div class= "mb-3">
 			  	<label for="inputTipo" class="form-label text-white fs-2 fw-bolder user-select-none">Tipo</label>
