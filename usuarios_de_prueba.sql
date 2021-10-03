@@ -1,0 +1,6 @@
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('1', 'Juana ', 'Dmin ', '37', 'admin@pasteles.com', '123456', '1');
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('2', 'Carlos ', 'Oropeza ', '30', 'elaboracion@pasteles.com', '123456', '2');
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('3', 'Camila', 'Gonzalez', '30', 'repartidor@pasteles.com', '123456', '3');
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('4', 'Scraffy', 'Fry', '45', 'almacen@pasteles.com', '123456', '4');
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('5', 'Leela', 'Turanga', '28', 'cajero@pasteles.com', '123456', '5');
+INSERT INTO `pasteleria_bd`.`usuarios` (`ID`, `nombres`, `apellidos`, `edad`, `correo`, `clave`, `tipo`) VALUES ('6', 'Omar', 'Alonso', '27', 'cliente@pasteles.com', '123456', '6');
