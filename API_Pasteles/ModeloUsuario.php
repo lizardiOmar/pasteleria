@@ -60,7 +60,7 @@
 		public function guardarCliente(){
 			try {	
 				$sql = "INSERT INTO usuarios (id, nombres, apellidos, edad, correo, clave, tipo)
-				VALUES ($this->id, '$this->nombres', '$this->apellidos', $this->edad, '$this->correo', '$this->clave', $this->tipo)";
+				VALUES ($this->id , '$this->nombres' , '$this->apellidos' , $this->edad , '$this->correo' , '$this->clave' , $this->tipo )";
 				$conn=new Conexion();
 				$conn->getConexion()->exec($sql);
 				$response = array(

@@ -10,7 +10,7 @@
 			isset($_POST['correo']) &&
 			isset($_POST['edad']) &&
 			isset($_POST['clave'])) {
-				$usuario_aux =  new ModeloUsuario(0, $_POST['nombres'], $_POST['apellidos'], $_POST['correo'], $_POST['edad'], $_POST['clave'], 6);
+				$usuario_aux =  new ModeloUsuario(0, $_POST['nombres'], $_POST['apellidos'], $_POST['edad'], $_POST['correo'],  $_POST['clave'], 6);
 				$usuario_aux->guardarCliente();
 			}
 			if (isset($_POST['id'])&&isset($_POST['dato'])&&isset($_POST['index_columna'])) {
@@ -28,8 +28,35 @@
 				$usuario=ModeloUsuario::isLogin($_GET['correo'], $_GET['clave']);
 				if($usuario!=null){
 					$usuario->setTipoString(ModeloUsuario::tipoDeUsuario($_GET['correo']));
-					echo "TIPO_DE_USUARIO: (".$usuario->correo." ".$usuario->apellidos.")".$usuario->tipo_string;
+					echo "TIPO_DE_USUARIO: (".$usuario->correo.")".$usuario->tipo_string;
+						switch ($usuario->tipo) {
+							case 1:
+								//echo "Administrador";
+								
+								break;
+							case 2:
+								//echo "Elaboración de productos";
+								
+								break;
+							case 3:
+								//echo "Repartidor";
+								
+								break;
+							case 4:
+								//echo "Almacén";
+								
+								break;
+							case 5:
+								//echo "Cajero";
+								
+								break;
+							case 6:
+								//echo "Cliente";
+								
+								break;
+						}
 				}
+				
 				
 				
 			}else{
