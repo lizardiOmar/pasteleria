@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+    	<title>Registrar Productos</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+	</head>
+	<body class="bg-secondary">
+    	<div>
+			<form class="bg-secondary-50 w-50 h-50 p-3 rounded mx-auto bg-gradient" action="http://localhost/API_pasteles/ControladorProducto.php" method="POST">
+				<div id="formRegistroTitle" class="form-text fs-1 fw-bold text-white-50 text-center">Registrar Productos</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputRegistrarProducto" class="form-label text-white fs-2 fw-bolder  user-select-none ">Nombre de producto</label>
+							<input class="form-control" placeholder="Nombre del Producto" name="nombreProducto" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputDescripcion" class="form-label text-white fs-2 fw-bolder  user-select-none ">Descripcion</label>
+							<input class="form-control" placeholder="descripcion" name="descripcion" type="text" autofocus required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputPrecio" class="form-label text-white fs-2 fw-bolder  user-select-none ">Precio</label>
+							<input class="form-control" placeholder="0.00" name="precio" type="number" autofocus required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputCantidadProductos" class="form-label text-white fs-2 fw-bolder  user-select-none ">Cantidad de Productos</label>
+							<input class="form-control" placeholder="0" name="cantidad" type="number" autofocus required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputCantidadMinProductos" class="form-label text-white fs-2 fw-bolder  user-select-none ">Cantidad de Productos Minima</label>
+							<input class="form-control" placeholder="3" name="cantidadMin" type="number" autofocus required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<label for="inputTipoDeProductos" class="form-label text-white fs-2 fw-bolder  user-select-none ">Tipo de productos</label>
+							<select class="form-control" name="tipo" autofocus required>
+								<option value="1">Pastel</option>
+							</select>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<button type="reset" class="btn btn-primary btn-lg fs-4 fw-bold text-white col">Cancelar</button>
+						<button type="submit" class="btn btn-secondary btn-lg fs-4 fw-bold text-white col">Registrar</button>
+			  		</div>	
+			</form>
+		</div>
+	</body>
+</html>
