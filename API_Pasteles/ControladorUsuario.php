@@ -34,23 +34,23 @@
 					//echo json_encode($usuario);
 					switch ($usuario->tipo) {
 							case 1:
-								//echo "Administrador";
+								echo "Administrador, Sección en desarrollo";
 									
 								break;
 							case 2:
-								//echo "Elaboración de productos";
+								echo "Elaboración de productos, Sección en desarrollo";
 								
 								break;
 							case 3:
-								//echo "Repartidor";
+								echo "Repartidor, Sección en desarrollo";
 								
 								break;
 							case 4:
-								//echo "Almacén";
+								echo "Almacén, Sección en desarrollo";
 								
 								break;
 							case 5:
-								//echo "Cajero";
+								echo "Cajero, Sección en desarrollo";
 								
 								break;
 							case 6:
@@ -59,6 +59,10 @@
 								$vistaCliente=new VistaHomeCliente($usuario);
 								break;
 						}	
+				}else{
+					//Redireccionamiento sin parametros
+					header("Location: http://localhost/API_pasteles/VistaLoginRegistro.html");
+					exit;
 				}
 				
 				
