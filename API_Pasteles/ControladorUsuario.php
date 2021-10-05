@@ -1,5 +1,8 @@
 <?php
 	include 'ModeloUsuario.php';
+	//include 'ModeloCliente.php';
+	//include 'ModeloAdministrador.php';
+	
 	//echo "El metodo utilizado es: " . $_SERVER['REQUEST_METHOD'];
 	switch ($_SERVER['REQUEST_METHOD']) {
 		//Crear cliente POST
@@ -28,11 +31,11 @@
 				$usuario=ModeloUsuario::isLogin($_GET['correo'], $_GET['clave']);
 				if($usuario!=null){
 					$usuario->setTipoString(ModeloUsuario::tipoDeUsuario($_GET['correo']));
-					echo "TIPO_DE_USUARIO: (".$usuario->correo.")".$usuario->tipo_string;
-						switch ($usuario->tipo) {
+					//echo json_encode($usuario);
+					switch ($usuario->tipo) {
 							case 1:
 								//echo "Administrador";
-								
+									
 								break;
 							case 2:
 								//echo "Elaboración de productos";
@@ -52,9 +55,10 @@
 								break;
 							case 6:
 								//echo "Cliente";
-								
+								include 'VistaHomeCliente.php';
+								$vistaCliente=new VistaHomeCliente($usuario);
 								break;
-						}
+						}	
 				}
 				
 				

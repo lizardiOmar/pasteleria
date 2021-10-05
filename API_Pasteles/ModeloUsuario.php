@@ -164,9 +164,11 @@
 				$result = $stmt->setFetchMode(PDO::FETCH_NUM);
 				while ($row = $stmt->fetch()) {
 					$usuario =  new ModeloUsuario($row[0], $row[1], $row[2], $row[3],  $row[4], $row[5], $row[6]);
+					
 				}
 				$conn=null;
 				//echo json_encode($usuario);
+			
 				return $usuario;
 			} catch (PDOException $e) {
 				$response = null;
@@ -174,6 +176,7 @@
 					"estado"=>"FALLIDO",
 					"usuario"=>"NULL"
 				);
+				
 				echo json_encode($response);
 				return json_encode($response);
 			}
@@ -199,7 +202,7 @@
 				
 				$conn=null;
 				//echo json_encode($tipo);
-				return json_encode($tipo);
+				return ($tipo);
 			} catch (PDOException $e) {
 				$response = null;
 				$response = array(
