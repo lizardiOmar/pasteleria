@@ -113,3 +113,16 @@ CREATE TABLE PRODUCTOS_INGREDIENTES (
 	PRIMARY KEY (`ID`),
 	FOREIGN KEY (ID_Producto) REFERENCES productos(ID),
     FOREIGN KEY (ID_Ingrediente) REFERENCES ingredientes(ID));
+CREATE TABLE Sucursales (
+    IdSucursal int NOT NULL AUTO_INCREMENT,
+    Nombre varchar(90) NOT NULL,
+    Telefono varchar(20) NOT NULL,
+    Ciudad varchar(255) NOT NULL,
+    Colonia varchar(255) NOT NULL,
+    Calle varchar(255) NOT NULL,
+    Numero varchar(255) NOT NULL,
+    Correo varchar(50) NOT NULL,
+    HoraApertura varchar(10) Not null,
+    HoraCierre varchar(10) not null,
+    PRIMARY KEY (IdSucursal)
+);
