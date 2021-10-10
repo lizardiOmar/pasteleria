@@ -134,3 +134,7 @@ CREATE TABLE IF NOT EXISTS ci_sessions (
  KEY ci_sessions_timestamp (timestamp)
 );
 ALTER TABLE ci_sessions ADD PRIMARY KEY (id);
+CREATE VIEW productos_clientes_catalogo AS
+SELECT productos.nombre as nombre, productos.descripcion as descripcion, productos.precio, productos.cantidad, tipos_de_producto.id as tipo 
+FROM productos, tipos_de_producto
+WHERE productos.tipo=tipos_de_producto.id;
