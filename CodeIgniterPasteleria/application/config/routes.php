@@ -13,3 +13,4 @@ $route['productos/(:num)'] = 'ClientesC/verCatalogo/$1';
 $route['administrador/(:num)'] = 'AdministradoresC/perfil/$1';
 $route['editarProductos/(:num)'] = 'AdministradoresC/verProductosEditables/$1';
 $route['editar/(:num)/(:num)'] = 'AdministradoresC/editar/$1/$2';
+$route['registrarPorductos/(:num)'] = 'AdministradoresC/registrarProductos/$1';
