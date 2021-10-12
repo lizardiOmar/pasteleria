@@ -72,8 +72,9 @@ class HomeC extends CI_Controller {
 					$datos['usuario']=$usuario_aux;
 					switch ($usuario_aux['tipo']) {
 						case 1:
-							echo "Administrador, Sección en desarrollo";
-								
+							//echo "Administrador, Sección en desarrollo";
+							$this->load->view('administradores/resultadoAcceso', $datos);
+							break;
 							break;
 						case 2:
 							echo "Elaboración de productos, Sección en desarrollo";
