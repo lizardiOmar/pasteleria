@@ -6,5 +6,10 @@ $route['default_controller'] = 'HomeC/contacto';
 $route['contacto'] = 'HomeC/contacto';
 $route['acceso'] = 'HomeC/acceder';
 $route['registro'] = 'HomeC/registrarme';
+
 $route['clientes/(:num)'] = 'ClientesC/perfil/$1';
 $route['productos/(:num)'] = 'ClientesC/verCatalogo/$1';
+
+$route['administrador/(:num)'] = 'AdministradoresC/perfil/$1';
+$route['editarProductos/(:num)'] = 'AdministradoresC/verProductosEditables/$1';
+$route['editar/(:num)/(:num)'] = 'AdministradoresC/editar/$1/$2';
