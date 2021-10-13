@@ -14,11 +14,11 @@ class productosM extends CI_Model {
 	}
 	public function getProductoById($id){
 	$consulta = $this->db->query("SELECT * FROM productos WHERE id='{$id}'");
-		$usuario = $consulta->row_array();
-		if($usuario === null){
+		$producto = $consulta->row_array();
+		if($producto === null){
 			return false;
 		}else{
-			return $usuario;
+			return $producto;
 		}
 	}
 }
