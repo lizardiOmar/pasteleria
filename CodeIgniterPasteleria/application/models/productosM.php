@@ -21,4 +21,18 @@ class productosM extends CI_Model {
 			return $producto;
 		}
 	}
+	
+	public function setProductos(){
+		$datos = array(
+			'ID' => 0,
+			'nombre' => $this->input->post('nombre'),
+			'descripcion' => $this->input->post('descripcion'),
+			'precio' => $this->input->post('precio'),
+			'cantidad' => $this->input->post('cantidad'),
+			'cantidad_minima' => $this->input->post('cantidad_minima'),
+			'tipo' => $this->input->post('tipo')
+		);
+		$this->db->insert('productos', $datos);
+		return $datos;
+	}
 }
