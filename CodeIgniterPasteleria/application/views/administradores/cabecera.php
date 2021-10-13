@@ -19,7 +19,7 @@
 							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/editarProductos/<?php echo $administrador['ID'] ?>">Editar productos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/registrarProductos/<?php echo $administrador['ID'] ?>">Agregar productos</a>
+							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/agregarProductos/<?php echo $administrador['ID'] ?>">Agregar productos</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/acceso">Cerrar sesión</a>
