@@ -7,11 +7,11 @@
 <body class="bg-secondary">
     <div class="bg-secondary-50 w-50 h-50 p-3 rounded mx-auto bg-gradient">
 		<div class="form-text fs-1 fw-bold text-white text-center form-group">
-			<div class="h-25 form-text fs-3 fw-bold text-white-50 text-center">Confirme los cambios del producto <?php echo $producto_new['id']; ?> </div>
+			<div class="h-25 form-text fs-3 fw-bold text-white-50 text-center">Cambios guardados con éxito</div>
 			<div class="row fs-5">
 				Nombre nuevo: <?php
 									if($producto_new['nombre'] === ''){
-										echo  'no';
+										echo  'n/a';
 									}else{
 										echo $producto_new['nombre'];
 									}	
@@ -20,7 +20,7 @@
 			<div class="row fs-5">
 				Descripción nueva: <?php
 									if($producto_new['descripcion'] === ''){
-										echo  'no';
+										echo 'n/a';
 									}else{
 										echo $producto_new['descripcion'];
 									}	
@@ -29,7 +29,7 @@
 			<div class="row fs-5">
 				Precio nuevo: 	<?php
 									if($producto_new['precio'] === ''){
-										echo  'no';
+										echo  'n/a';
 									}else{
 										echo $producto_new['precio'];
 									}		
@@ -38,7 +38,7 @@
 			<div class="row fs-5">
 				Cantidad nueva: 	<?php
 									if($producto_new['cantidad'] === ''){
-										echo  'no';
+										echo  'n/a';
 									}else{
 										echo $producto_new['cantidad'];
 									}		
@@ -47,7 +47,7 @@
 			<div class="row fs-5">
 				Cantidad miníma nueva: 	<?php
 									if($producto_new['cantidad_minima'] === ''){
-										echo  'no';
+										echo  'n/a';
 									}else{
 										echo $producto_new['cantidad_minima'];
 									}		
@@ -56,14 +56,14 @@
 			<div class="row fs-5">
 				Tipo nuevo: 	<?php
 									if($producto_new['tipo'] === ''){
-										echo  'no';
+										echo  'n/a';
 									}else{
 										echo $producto_new['tipo'];
 									}		
 								?>
 			</div>
-			<div class="row align-items-center btn btn-danger btn-lg">
-				<a class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/editar/<?php echo $administrador['ID']?>/<?php echo $producto['ID']?>">Cancelar</a>
+			<div class="row align-items-center btn btn-primary btn-lg">
+				<a class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/editarProductos/<?php echo $administrador['ID']?>">Continuar</a>
 			</div>
 		</div>
 	</div>
