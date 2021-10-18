@@ -33,34 +33,6 @@ class AdministradoresC extends CI_Controller {
 			}
 		}
 	}
-	
-	public function registrarProductos($id){
-		if (!file_exists(APPPATH.'views/administradores/registrarProductos.php')){
-			// Cáspita ... no tenemos una pagina para esto!
-			show_404();
-		}
-		$administrador=$this->usuariosM->getUsuarioById($id);
-		if($administrador === false){
-			//Cargar vista de redireccion al login
-		}else{
-			//cargar la plantilla de catalogo del sitio de los clientes
-			$this->form_validation->set_rules('nombre','nombre','min_length[5]|max_length[30]|is_unique[productos.nombre]');
-			$datos['administrador']=$administrador;
-			$this->load->model('tipoProductosM');
-			$datos['tipoProductos'] = $this->tipoProductosM->getTipoProductos();
-			if($this->form_validation->run() === FALSE){
-				$this->load->view('administradores/cabecera', $datos);
-				$this->load->view('administradores/registrarProductos', $datos);
-			}else{
-				//echo "si entro";
-				$this->load->model('productosM');
-				$datos['nuevo_Producto']=$this->productosM->setProductos();
-				$this->load->view('administradores/resultadoRegistroProducto', $datos);
-			}
-		}
-	}
-	
-	
 	public function verProductosEditables($id){
 		if (!file_exists(APPPATH.'views/administradores/productosEditables.php')){
 			show_404();
@@ -105,11 +77,10 @@ class AdministradoresC extends CI_Controller {
 		$this->form_validation->set_rules(
 			'descripcion',//nombre del imput del formulario
 			'descripción',//etiqueta para mensajes de salida
-			'min_length[20]|max_length[90]|alpha_numeric_spaces|trim|is_unique[productos.nombre]',//minimo 5 caracteres, maximo 30, correo electrónico único, correo electronico con formato válido 
+			'min_length[20]|max_length[90]|trim|is_unique[productos.nombre]',//minimo 5 caracteres, maximo 30, correo electrónico único, correo electronico con formato válido 
 			array(
 				'min_length' => 'El minímo de caracteres para modificar la %s son 2.',
 				'max_length' => 'El máximo de caracteres para modificar la %s son 90.',
-				'alpha_numeric' => 'Solo se permiten numeros y letras para la %s',
 				'is_unique' => 'La %s no puede ser igual a alguno ya almacenado.'
 			)
 		);
@@ -161,7 +132,12 @@ class AdministradoresC extends CI_Controller {
 				//$producto_new['nombre'][strlen($producto_new['nombre'])-1]='.';
 				//$this->load->view('administradores/editarProductoForm', $datos);
 			}else{
+				$datosU;
 				if($producto_new['nombre'] != null){
+					
+					$this->db->set('nombre', $producto_new['nombre']);
+					$this->db->where('id', $producto_new['id']);
+					$this->db->update('productos'); 
 					$formValido=true;
 				}
 				if($producto_new['descripcion'] == $producto['descripcion']){
@@ -170,6 +146,9 @@ class AdministradoresC extends CI_Controller {
 					//$this->load->view('administradores/editarProductoForm', $datos);
 				}else{
 					if($producto_new['descripcion'] != null){
+						$this->db->set('descripcion', $producto_new['descripcion']);
+						$this->db->where('id', $producto_new['id']);
+						$this->db->update('productos');
 						$formValido=true;
 					}
 					if($producto_new['precio'] == $producto['precio']){
@@ -178,6 +157,9 @@ class AdministradoresC extends CI_Controller {
 						//$this->load->view('administradores/editarProductoForm', $datos);
 					}else{
 						if($producto_new['precio'] != null){
+							$this->db->set('precio', $producto_new['precio']);
+							$this->db->where('id', $producto_new['id']);
+							$this->db->update('productos');
 							$formValido=true;
 						}
 						if($producto_new['cantidad'] == $producto['cantidad']){
@@ -186,6 +168,9 @@ class AdministradoresC extends CI_Controller {
 							//$this->load->view('administradores/editarProductoForm', $datos);
 						}else{
 							if($producto_new['cantidad'] != null){
+								$this->db->set('cantidad', $producto_new['cantidad']);
+								$this->db->where('id', $producto_new['id']);
+								$this->db->update('productos');
 								$formValido=true;
 							}
 							if($producto_new['cantidad_minima'] == $producto['cantidad_minima']){
@@ -194,6 +179,9 @@ class AdministradoresC extends CI_Controller {
 								//$this->load->view('administradores/editarProductoForm', $datos);
 							}else{
 								if($producto_new['cantidad_minima'] != null){
+									$this->db->set('cantidad_minima', $producto_new['cantidad_minima']);
+									$this->db->where('id', $producto_new['id']);
+									$this->db->update('productos');
 									$formValido=true;
 								}
 							}
