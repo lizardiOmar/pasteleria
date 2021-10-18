@@ -33,6 +33,31 @@ class AdministradoresC extends CI_Controller {
 			}
 		}
 	}
+	public function registrarProductos($id){
+		if (!file_exists(APPPATH.'views/administradores/registrarProductos.php')){
+			// Cáspita ... no tenemos una pagina para esto!
+			show_404();
+		}
+		$administrador=$this->usuariosM->getUsuarioById($id);
+		if($administrador === false){
+			//Cargar vista de redireccion al login
+		}else{
+			//cargar la plantilla de catalogo del sitio de los clientes
+			$this->form_validation->set_rules('nombre','nombre','min_length[5]|max_length[30]|is_unique[productos.nombre]');
+			$datos['administrador']=$administrador;
+			$this->load->model('tipoProductosM');
+			$datos['tipoProductos'] = $this->tipoProductosM->getTipoProductos();
+			if($this->form_validation->run() === FALSE){
+				$this->load->view('administradores/cabecera', $datos);
+				$this->load->view('administradores/registrarProductos', $datos);
+			}else{
+				//echo "si entro";
+				$this->load->model('productosM');
+				$datos['nuevo_Producto']=$this->productosM->setProductos();
+				$this->load->view('administradores/resultadoRegistroProducto', $datos);
+			}
+		}
+	}
 	public function verProductosEditables($id){
 		if (!file_exists(APPPATH.'views/administradores/productosEditables.php')){
 			show_404();
