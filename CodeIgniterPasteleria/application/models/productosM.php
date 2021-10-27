@@ -22,6 +22,22 @@ class productosM extends CI_Model {
 		}
 	}
 	
+	
+	public function getProductoByTipo($tipoProducto){
+		    $this->db->select('*');
+		    $this->db->from('productos');
+    		$this->db->where('tipo', $tipoProducto );
+		    $query = $this->db->get();
+		    if($query->result_array() == null){
+		    	return false;
+		    }else{
+		    	return $query->result_array(); 
+		    }
+		    
+	}
+	
+	
+	
 	public function setProductos(){
 		$datos = array(
 			'ID' => 0,
