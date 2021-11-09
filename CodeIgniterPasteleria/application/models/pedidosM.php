@@ -4,14 +4,15 @@ class pedidosM extends CI_Model {
 	public function __construct(){
 		$this->load->database();
 	}
-	public function setPedidoDef(){
+	public function setPedidoDef($idUsuario){
 		$datos => array(
 			'ID' => 0 ,
 			'total' =>0,
 			'descuento' => 0,
 			'subtotal' => 0,
 			'tipo' => 2,
-			'estado'=> 1
+			'estado'=> 1,
+			'usuario'=>$idUsuario
 			 );
 		$this->db->insert('pedidos', $datos);
 		return $datos;
