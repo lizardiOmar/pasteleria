@@ -9,6 +9,7 @@ $route['registro'] = 'HomeC/registrarme';
 
 $route['clientes/(:num)'] = 'ClientesC/perfil/$1';
 $route['productos/(:num)'] = 'ClientesC/verCatalogo/$1';
+$route['buscar/(:num)/(:num)'] = 'ClientesC/busquedaTipo/$1/$2';
 
 $route['administrador/(:num)'] = 'AdministradoresC/perfil/$1';
 $route['editarProductos/(:num)'] = 'AdministradoresC/verProductosEditables/$1';
