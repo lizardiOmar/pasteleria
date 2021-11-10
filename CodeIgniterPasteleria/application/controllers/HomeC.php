@@ -89,8 +89,7 @@ class HomeC extends CI_Controller {
 								
 							break;
 						case 5:
-							echo "Cajero, Sección en desarrollo";
-								
+							$this->load->view('cajeros/resultadoAcceso', $datos);
 							break;
 						case 6:
 							//echo "Cliente";
