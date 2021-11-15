@@ -10,6 +10,10 @@ $route['registro'] = 'HomeC/registrarme';
 $route['clientes/(:num)'] = 'ClientesC/perfil/$1';
 $route['productos/(:num)'] = 'ClientesC/verCatalogo/$1';
 $route['buscar/(:num)/(:num)'] = 'ClientesC/busquedaTipo/$1/$2';
+$route['pedido/(:num)'] = 'ClientesC/abrirPedidos/$1/$2';
+$route['compra/(:num)/(:num)'] = 'ClientesC/carrito/$1/$2';
+$route['agregarAlCarritoCliente/(:num)/(:num)/(:num)'] = 'ClientesC/agregarAlCarritoCliente/$1/$2/$3';
+$route['pagarPedido/(:num)/(:num)'] = 'ClientesC/PagarPedido/$1/$2';
 
 $route['administrador/(:num)'] = 'AdministradoresC/perfil/$1';
 $route['editarProductos/(:num)'] = 'AdministradoresC/verProductosEditables/$1';
