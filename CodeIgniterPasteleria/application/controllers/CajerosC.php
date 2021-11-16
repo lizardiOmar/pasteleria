@@ -93,7 +93,19 @@ class CajerosC extends CI_Controller {
 			$cantidad=$this->input->post('cantidad');
 			$subtotal=$cantidad*$producto['precio'];
 			$datos['idPedidoProducto']=$this->PedidosProductosM->agregarProductoAlPedido($idProducto, $idPedido, $cantidad, $subtotal);
-			$this->load->view('cajeros/pie.php', $datos);
+			$pedido=$datos['pedido'];
+			//NUEVO CÓDIGO
+			$subtotalPedido=$pedido['subtotal']+$subtotal;
+			$this->PedidosM->updateSubtotal($idPedido, $subtotalPedido);
+			//DATOS AUXILIARES PARA LA VISTA
+			$AUX['producto_pedido']=$this->PedidosProductosM->getPedidoProductoById($datos['idPedidoProducto']);
+			$AUX['pedido']=$this->PedidosM->getPedidoById($idPedido);
+			$AUX['producto']=$this->productosM->getProductoById($idProducto);
+			$AUX['cajeroID']=$idCajero;
+			//echo 'PRODUCTO'.json_encode($AUX['producto_pedido']).'-------';
+			//echo 'PEDIDO'.json_encode($AUX['producto']);
+			$this->load->view('cajeros/productoAgregado.php', $AUX);
+			
 		}
 		
 	}
