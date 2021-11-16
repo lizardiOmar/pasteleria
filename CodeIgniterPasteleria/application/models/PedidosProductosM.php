@@ -15,4 +15,13 @@ class PedidosProductosM extends CI_Model {
 		$this->db->insert('pedidos_productos', $datos);
 		return $this->db->insert_id();
 	}
+	public function getPedidoProductoById($id){
+	$consulta = $this->db->query("SELECT * FROM pedidos_productos WHERE id='{$id}'");
+		$pedidos_productos = $consulta->row_array();
+		if($pedidos_productos === null){
+			return false;
+		}else{
+			return $pedidos_productos;
+		}
+	}
 }
