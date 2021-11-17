@@ -36,4 +36,21 @@ class PedidosM extends CI_Model {
 		$this->db->update('pedidos'); 
 		
 	}
+	public function cambiarPedidoEnCaptura($idPedido){
+		$datos = array('estado'=> 1);	
+		$this->db->where('ID',$idPedido);
+		$this->db->update('pedidos',$datos);
+	}
+
+	public function cambiarPedidoVendido($idPedido){
+		$datos = array('estado'=> 2);	
+		$this->db->where('ID',$idPedido);
+		$this->db->update('pedidos',$datos);
+	}
+
+	public function cambiarPedidoCancelado($idPedido){
+		$datos = array('estado'=> 3);	
+		$this->db->where('ID',$idPedido);
+		$this->db->update('pedidos',$datos);
+	}
 }
