@@ -39,6 +39,39 @@ class CajerosC extends CI_Controller {
 			}
 		}
 	}
+	public function cancelarVenta($idCajero, $idPedido){
+		if (!file_exists(APPPATH.'views/cajeros/caja.php')){
+			show_404();
+			//echo 'Cáspita ... no tenemos una pagina para esto!';
+		}
+		$this->PedidosM->cambiarPedidoCancelado($idPedido);
+		$datos['cajero'] = $this->usuariosM->getUsuarioById($idCajero);
+		$datos['pedido'] = $this->PedidosM->getPedidoById($idPedido);
+		$this->load->view('cajeros/cancelarVenta.php', $datos);
+	}
+	
+	public function cobrarVenta($idCajero, $idPedido){
+		if (!file_exists(APPPATH.'views/cajeros/caja.php')){
+			show_404();
+			//echo 'Cáspita ... no tenemos una pagina para esto!';
+		}
+		$datos['cajero'] = $this->usuariosM->getUsuarioById($idCajero);
+		$datos['pedido'] = $this->PedidosM->getPedidoById($idPedido);
+		$datos['productos']=$this->PedidosProductosM->getProductosbyPedido($idPedido);
+		$this->load->view('cajeros/cobrarVenta.php', $datos);
+		//echo json_encode($datos);
+	}
+	public function ventaCobrada($idCajero, $idPedido){
+		if (!file_exists(APPPATH.'views/cajeros/caja.php')){
+			show_404();
+			//echo 'Cáspita ... no tenemos una pagina para esto!';
+		}
+		$this->PedidosM->cambiarPedidoVendido($idPedido);
+		$datos['cajero'] = $this->usuariosM->getUsuarioById($idCajero);
+		$datos['pedido'] = $this->PedidosM->getPedidoById($idPedido);
+		$datos['productos']=$this->PedidosProductosM->getProductosbyPedido($idPedido);
+		$this->load->view('cajeros/cobrada.php', $datos);
+	}
 	public function caja($idCajero, $idPedido){
 		if (!file_exists(APPPATH.'views/cajeros/caja.php')){
 			show_404();
