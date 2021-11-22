@@ -9,20 +9,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item btn btn-danger mx-autofs-2 text-center fw-bolder user-select-none p-3 text-white">
-							<h3 class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/caja/<?php echo $cajero['ID']; ?>">
-								Cancelar venta
-							</h3>
+						<li class="nav-item  btn btn-danger mx-autofs-2 text-center p-1 fw-bolder user-select-none p-3 text-white">
+							<a class="nav-link text-white"  href="http://localhost/CodeigniterPasteleria/index.php/cancelarVenta/<?php echo $cajero['ID'].'/'.$pedido['ID']; ?>">
+								<h3>
+									Cancelar venta
+								</h3>
+							</a>
 						</li>
 						
-						<h4 class="mx-autofs-2 border border-ligth border-5 text-center p-1 fw-bolder user-select-none p-2 text-white">
+						<h4 class="text-center fw-bolder user-select-none p-3 text-white">
 							SUBTOTAL: $<?php echo $pedido['subtotal']; ?>
 						</h4>
 				
 						<li class="nav-item btn btn-success mx-autofs-2 text-center p-1 fw-bolder user-select-none p-3 text-white">
-							<h3 class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/caja/<?php echo $cajero['ID']; ?>">
-								Cobrar
-							</h3>
+							<a class="nav-link text-white"  href="http://localhost/CodeigniterPasteleria/index.php/cobrarVenta/<?php echo $cajero['ID'].'/'.$pedido['ID']; ?>">
+								<h3>
+									Cobrar
+								</h3>
+							</a>	
 						</li>
 						
 						<li class="nav-item  btn btn-secondary mx-autofs-2 text-center p-1 fw-bolder user-select-none p-3 text-white">
