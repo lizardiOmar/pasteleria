@@ -21,5 +21,7 @@ $route['editar/(:num)/(:num)'] = 'AdministradoresC/editar/$1/$2';
 
 $route['caja/(:num)'] = 'CajerosC/abrirVenta/$1';
 $route['venta/(:num)/(:num)']='CajerosC/caja/$1/$2';
-
+$route['cancelarVenta/(:num)/(:num)']='CajerosC/cancelarVenta/$1/$2';
+$route['cobrarVenta/(:num)/(:num)']='CajerosC/cobrarVenta/$1/$2';
+$route['ventaLista/(:num)/(:num)']='CajerosC/ventaCobrada/$1/$2';
 $route['agregarAlCarrito/(:num)/(:num)/(:num)'] = 'CajerosC/agregarAlCarro/$1/$2/$3';
