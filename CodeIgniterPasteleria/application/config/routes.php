@@ -12,12 +12,15 @@ $route['productos/(:num)'] = 'ClientesC/verCatalogo/$1';
 $route['buscar/(:num)/(:num)'] = 'ClientesC/busquedaTipo/$1/$2';
 $route['pedido/(:num)'] = 'ClientesC/abrirPedidos/$1/$2';
 $route['compra/(:num)/(:num)'] = 'ClientesC/carrito/$1/$2';
+$route['CancelarPedido/(:num)/(:num)'] = 'ClientesC/cancelarPedido/$1/$2';
+$route['pagarPedido/(:num)/(:num)'] = 'ClientesC/pagarPedido/$1/$2';
+$route['pedidoListo/(:num)/(:num)'] = 'ClientesC/PedidoPagado/$1/$2';
 $route['agregarAlCarritoCliente/(:num)/(:num)/(:num)'] = 'ClientesC/agregarAlCarritoCliente/$1/$2/$3';
-$route['pagarPedido/(:num)/(:num)'] = 'ClientesC/PagarPedido/$1/$2';
 
 $route['administrador/(:num)'] = 'AdministradoresC/perfil/$1';
 $route['editarProductos/(:num)'] = 'AdministradoresC/verProductosEditables/$1';
 $route['editar/(:num)/(:num)'] = 'AdministradoresC/editar/$1/$2';
+$route['agregarProductos/(:num)'] = 'AdministradoresC/registrarProductos/$1';
 
 $route['caja/(:num)'] = 'CajerosC/abrirVenta/$1';
 $route['venta/(:num)/(:num)']='CajerosC/caja/$1/$2';
