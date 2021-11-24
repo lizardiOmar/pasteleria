@@ -7,6 +7,15 @@ class ClientesC extends CI_Controller {
 		$this->load->library('form_validation');
 		//Importar modelo de usuarios
 		$this->load->model('usuariosM');
+		
+		//Importar modelo de productos
+		$this->load->model('productosM');
+		$this->load->model('PedidosM');
+		$this->load->model('PedidosProductosM');
+		//Importar modelo de tipos de producto
+		$this->load->model('tipoProductosM');
+
+		$this->load->model('direcciones_UsuarioM');
 		//helper para strings
 		$this->load->helper('url_helper');
 		
@@ -44,7 +53,6 @@ class ClientesC extends CI_Controller {
 			$this->load->view('clientes/catalogo', $datos);
 		}
 	}
-	
 	public function busquedaTipo($id, $tipoProducto){
 		if (!file_exists(APPPATH.'views/clientes/cabecerabusqueda.php')){
 			show_404();
@@ -71,7 +79,6 @@ class ClientesC extends CI_Controller {
 		}
 
 	}
-	
 	public function abrirPedidos($id){
 		if (!file_exists(APPPATH.'views/clientes/CrearVenta.php')){
 			show_404();
@@ -96,6 +103,16 @@ class ClientesC extends CI_Controller {
 		}
 	}
 
+	public function cancelarPedido($idCliente, $idPedido){
+		if (!file_exists(APPPATH.'views/clientes/caja.php')){
+			show_404();
+			//echo 'Cáspita ... no tenemos una pagina para esto!';
+		}
+		$this->PedidosM->cambiarPedidoCancelado($idPedido);
+		$datos['cliente'] = $this->usuariosM->getUsuarioById($idCliente);
+		$datos['pedido'] = $this->PedidosM->getPedidoById($idPedido);
+		$this->load->view('clientes/cancelarVenta.php', $datos);
+	}
 	public function carrito($idCliente, $idPedido){
 		if (!file_exists(APPPATH.'views/clientes/caja.php')){
 			show_404();
@@ -123,8 +140,6 @@ class ClientesC extends CI_Controller {
 			}
 		}
 	}
-
-
 	public function agregarAlCarritoCliente($idPedido, $idCliente, $idProducto){
 		if (!file_exists(APPPATH.'views/clientes/agregarAlCarrito.php')){
 			show_404();
@@ -153,15 +168,47 @@ class ClientesC extends CI_Controller {
 			$cantidad=$this->input->post('cantidad');
 			$subtotal=$cantidad*$producto['precio'];
 			$datos['idPedidoProducto']=$this->PedidosProductosM->agregarProductoAlPedido($idProducto, $idPedido, $cantidad, $subtotal);
-			$this->load->view('clientes/resultadoCarrito.php', $datos);
+			$pedido=$datos['pedido'];
+			//NUEVO CÓDIGO
+			$subtotalPedido=$pedido['subtotal']+$subtotal;
+			$this->PedidosM->updateSubtotal($idPedido, $subtotalPedido);
+			//DATOS AUXILIARES PARA LA VISTA
+			$AUX['producto_pedido']=$this->PedidosProductosM->getPedidoProductoById($datos['idPedidoProducto']);
+			$AUX['pedido']=$this->PedidosM->getPedidoById($idPedido);
+			$AUX['producto']=$this->productosM->getProductoById($idProducto);
+			$AUX['clienteID']=$idCliente;
+			//echo 'PRODUCTO'.json_encode($AUX['producto_pedido']).'-------';
+			//echo 'PEDIDO'.json_encode($AUX['producto']);
+			//$this->load->view('cajeros/productoAgregado.php', $AUX);
+			$this->load->view('clientes/resultadoCarrito.php', $AUX);
 		}
 	}
+
 	public function PagarPedido($idCliente,$idPedido){
-		if (!file_exists(APPPATH.'views/clientes/PagarPedido.php')){
+		if (!file_exists(APPPATH.'views/clientes/caja.php')){
+			show_404();
+			//echo 'Cáspita ... no tenemos una pagina para esto!';
+		}
+		$datos['cliente'] = $this->usuariosM->getUsuarioById($idCliente);
+		$datos['pedido'] = $this->PedidosM->getPedidoById($idPedido);
+		$datos['productos']=$this->PedidosProductosM->getProductosbyPedido($idPedido);
+		$this->load->view('clientes/cabecera.php', $datos);
+		$this->load->view('clientes/cobrarVenta.php', $datos);
+		$this->load->view('clientes/pieVenta.php', $datos);
+		//echo json_encode($datos);	
+	}
+
+	public function PedidoPagado($idCliente,$idPedido){
+		if (!file_exists(APPPATH.'views/clientes/caja.php')){
 			show_404();
 			echo 'Cáspita ... no tenemos una pagina para esto!';
 		}
+		$datos['cliente'] = $this->usuariosM->getUsuarioById($idCliente);
+		$datos['direccion'] = $this->direcciones_UsuarioM->getUsuarioDireccionesById($idCliente);
+		$this->PedidosM->cambiarPedidoVendido($idPedido);
+		$datos['pedido']  =	$this->PedidosM->getPedidoById($idPedido);
+		$datos['productos'] = $this->PedidosProductosM->getProductosbyPedido($idPedido);
+		$this->load->view('clientes/cobrada.php', $datos);
 
 	}
-	
 }
