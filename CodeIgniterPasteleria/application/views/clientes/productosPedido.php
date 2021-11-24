@@ -4,33 +4,22 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
 <div class="row">
-	<?php foreach ($productos as $producto):?>
-	<div class="card bg-secondary mx-auto border border-primary border-3 rounded" style="width: 18rem;">
+	<?php foreach ($productosPedido as $producto):?>
+		<div class="card bg-secondary mx-auto border border-primary border-3 rounded" style="width: 18rem;">
 		<h4 class="card-title text-white mx-auto">"<?php echo $producto['nombre']; ?>"</h4>
 		<div class="card-body bg-primary border border-secondary border-3 rounded">
 			<p class="card-subtitle text-muted">
-				Descripción:
+				Cantidad:
 			</p>
 			<p class="card-text text-white">
-				<?php echo $producto['descripcion']; ?>
+				<?php echo $producto['cantidadCompra']; ?>
 			</p>
 			<p class="card-subtitle text-muted">
-				Precio:
+				subtotal:
 			</p>
 			<h5 class="card-text text-white">
-				$<?php echo $producto['precio']; ?>
+				$<?php echo $producto['subtotal']; ?>
 			</h5>
-			<p class="card-subtitle text-muted">
-				Categoría:
-			</p>
-			<p class="card-text text-white">
-				<?php echo $producto ['tipo']; ?>
-			</p>
-			<h5 class="card-text text-white">
-				Quedan:
-				<?php echo $producto['cantidad']; ?>
-			</h5>
-		</div>	
+		</div>		
 	</div>
 	<?php endforeach;?>
-</div>

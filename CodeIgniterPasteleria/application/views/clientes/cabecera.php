@@ -19,10 +19,11 @@
 							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/productos/<?php echo $cliente['ID']; ?>">Catalogo</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/">Buscar</a>
+							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/buscar/<?php echo $cliente['ID']; ?>/0"/>Buscar</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/">Pedidos</a>
+							<a class="nav-link" href="http://localhost/CodeigniterPasteleria/index.php/pedido/
+							<?php echo $cliente['ID']; ?>">Pedidos</a>
 						</li>
 					</ul>
 				</div>

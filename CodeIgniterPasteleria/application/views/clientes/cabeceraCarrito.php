@@ -10,9 +10,12 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item btn btn-danger mx-autofs-2 text-center fw-bolder user-select-none p-3 text-white">
-							<h3 class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/clientes/<?php echo $cliente['ID']; ?>">
+							<a class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/CancelarPedido/<?php echo $cliente['ID'].'/'.$pedido['ID']; ?>">
+								<h3 >
 								Cancelar Compra
-							</h3>
+								</h3>
+							</a>
+							
 						</li>
 						
 						<h4 class="mx-autofs-2 border border-ligth border-5 text-center p-1 fw-bolder user-select-none p-2 text-white">
@@ -20,9 +23,12 @@
 						</h4>
 				
 						<li class="nav-item btn btn-success mx-autofs-2 text-center p-1 fw-bolder user-select-none p-3 text-white">
-							<h3 type="button" class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/pagarPedido/<?php echo $cliente['ID'].'/'.$idPedido; ?>">
+							<a class="nav-link text-white" href="http://localhost/CodeigniterPasteleria/index.php/pagarPedido/<?php echo $cliente['ID'].'/'.$idPedido; ?>">
+								<h3>
 								Comprar
-							</h3>
+								</h3>
+							</a>
+							
 						</li>
 					</ul>
 				</div>
